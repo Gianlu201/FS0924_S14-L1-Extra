@@ -1,0 +1,26 @@
+﻿@* @model List<Book>; *@
+@model BooksModelView;
+
+@{
+    ViewData["Title"] = "EpiBooks";
+}
+
+<div class="container">
+    <h1>Library</h1>
+
+    <div class="row">
+        @foreach(var book in Model.Books)
+        {
+            <div class="col-2">
+                <div class="card mb-3">
+                    <img src=@book.Poster class="card-img-top img-fluid" alt=@book.Title>
+                    <div class="card-body">
+                        <h5 class="card-title">@book.Title</h5>
+                        <p class="card-text">Author: @book.Author</p>
+                        <p class="card-text">@book.Year - @book.Genre</p>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
