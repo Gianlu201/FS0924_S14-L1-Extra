@@ -95,5 +95,32 @@ namespace FS0924_S14_L1_Extra.Controllers
             //return View(booksList);
             return View(books);
         }
+
+        public IActionResult AddBook()
+        {
+            return View();
+        }
+
+        public IActionResult CreateBook(CreateBookModel book)
+        {
+            if (!ModelState.IsValid)
+            {
+                return RedirectToAction("Add");
+            }
+
+            var newBook = new Book()
+            {
+                Id = Guid.NewGuid(),
+                Title = book.Title,
+                Author = book.Author,
+                Year = book.Year,
+                Genre = book.Genre,
+                Poster = book.Poster,
+            };
+
+            booksList.Add(newBook);
+
+            return RedirectToAction("Index");
+        }
     }
 }

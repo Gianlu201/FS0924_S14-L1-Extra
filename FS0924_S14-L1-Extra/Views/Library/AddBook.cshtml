@@ -1,0 +1,52 @@
+﻿@model CreateBookModel;
+
+@{
+    ViewData["Title"] = "Add a book";
+}
+
+<h2>
+    New book
+</h2>
+
+<div>
+    <form method="post" asp-controller="Library" asp-action="CreateBook">
+        <div class="row my-2">
+            <label class="col-2" for="bookTitle">Book's title</label>
+            <input class="col-2 border-0 bg-secondary bg-opacity-25 p-1 rounded-3" id="bookTitle" asp-for="Title" />
+            <span class="col-4 text-danger" asp-validation-for="Title"></span>
+        </div>
+
+        <div class="row my-2">
+            <label class="col-2" for="bookAuthor">Book's author</label>
+            <input class="col-2 border-0 bg-secondary bg-opacity-25 p-1 rounded-3" id="bookAuthor" asp-for="Author" />
+            <span class="col-4 text-danger" asp-validation-for="Author"></span>
+        </div>
+
+        <div class="row my-2">
+            <label class="col-2" for="bookYear">Book's year</label>
+            <input class="col-2 border-0 bg-secondary bg-opacity-25 p-1 rounded-3" id="bookYear" asp-for="Year" />
+            <span class="col-4 text-danger" asp-validation-for="Year"></span>
+        </div>
+
+        <div class="row my-2">
+            <label class="col-2" for="bookGenre">Book's genre</label>
+            <input class="col-2 border-0 bg-secondary bg-opacity-25 p-1 rounded-3" id="bookGenre" asp-for="Genre" />
+            <span class="col-4 text-danger" asp-validation-for="Genre"></span>
+        </div>
+
+        <div class="row my-2">
+            <label class="col-2" for="bookPoster">Book's poster</label>
+            <input class="col-2 border-0 bg-secondary bg-opacity-25 p-1 rounded-3" id="bookPoster" asp-for="Poster" />
+            <span class="col-4 text-danger" asp-validation-for="Poster"></span>
+        </div>
+
+        <div>
+            <button class="btn btn-success">Add</button>
+            <button type="reset" class="btn btn-warning">Reset</button>
+        </div>
+    </form>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
